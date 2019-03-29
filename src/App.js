@@ -12,7 +12,8 @@ import './App.css';
 const App = () => {
   // Context variables
   const [items, setItems] = useState([]);
-  const algolia = algoliasearch('CYDENZIZOU', '9e8619030b589f42712faa73322707c2');
+  const algolia = algoliasearch('KNJZXS6TZP', 'e96aea45b35a6f3c8b9ef10cef68e030'); //claudio
+  // const algolia = algoliasearch('latency', '6be0576ff61c053d5f9a3225e2a90f76'); //demo
   const index = algolia.initIndex('instant_search');
 
   // We only want to fetch data when the component mounts.
@@ -31,10 +32,20 @@ const App = () => {
 
   return (
     <div>
-      <h2>Insant Search by Algolia</h2>
+      <header className="header">
+        <h1 className="header-title">
+          <a href="/">Instant Search via Algolia (React 16)</a>
+        </h1>
+        <p className="header-subtitle">
+          using{' '}
+          <a href="https://github.com/algolia/react-instantsearch">
+            React InstantSearch
+          </a>
+        </p>
+      </header>
       <InstantSearchComponent algolia={algolia}> </InstantSearchComponent>
-      <Form onSubmit={addNewItem} algolia={algolia}/>
-      <ItemsList items={items} />
+      {/* <Form onSubmit={addNewItem} algolia={algolia}/> */}
+      {/* <ItemsList items={items} /> */}
     </div>
   )
 }

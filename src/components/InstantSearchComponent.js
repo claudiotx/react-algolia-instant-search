@@ -4,36 +4,52 @@ import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
   Hits,
+  Menu,
+  connectHits,
+  ClearRefinements,
+  Panel,
+  Stats,
   SearchBox,
+  RangeInput,
   Pagination,
+  RefinementList,
+  Highlight
 } from 'react-instantsearch-dom';
 
-const InstantSearchComponent = props => {
-  return (
-    <div>
-    <header className="header">
-      <h1 className="header-title">
-        <a href="/">instantsearch-react-app</a>
-      </h1>
-      <p className="header-subtitle">
-        using{' '}
-        <a href="https://github.com/algolia/react-instantsearch">
-          React InstantSearch
-        </a>
-      </p>
-    </header>
+// Docs
+// https://www.algolia.com/doc/api-reference/widgets/hits/react/
 
+const InstantSearchComponent = props => {
+
+  return (
     <div className="container">
       <InstantSearch searchClient={props.algolia} indexName="instant_search">
+        <Stats />
+        {/* Refinement List Widget */}
+        <h2> Refinements </h2>
+        <RefinementList
+            attribute="make"
+            limit={2}
+            showMoreLimit={5}
+            showMore={true}
+          />
+
+        {/* Search Panel */}
+        <h2> Power </h2>
+        <RangeInput attribute="power"/>
+
+        <ClearRefinements />
         <div className="search-panel">
           <div className="search-panel__results">
+            <h2> Search </h2>
             <SearchBox
               className="searchbox"
               translations={{
                 placeholder: '',
               }}
             />
-            <Hits hitComponent={Hit} />
+            <h2> Results </h2>
+            <Hits hitComponent={Hit}/>
 
             <div className="pagination">
               <Pagination />
@@ -42,19 +58,24 @@ const InstantSearchComponent = props => {
         </div>
       </InstantSearch>
     </div>
-  </div>
   )
 };
 
 function Hit(props) {
   return (
-    <article>
-      <p>
-        <code>{JSON.stringify(props.hit).slice(0, 100)}...</code>
-      </p>
-    </article>
+    <div>
+      <p> <Highlight hit={props.hit} attribute="make" /> {props.hit.model}  </p>
+    </div>
+
+    // <article>
+    //   <p>
+    //   {props.hit.make}: {props.hit.model}
+    //     {/* <code>{JSON.stringify(props.hit).slice(0, 100)}...</code> */}
+    //   </p>
+    // </article>
   );
 }
+
 
 Hit.propTypes = {
   hit: PropTypes.object.isRequired,

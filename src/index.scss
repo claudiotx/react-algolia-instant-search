@@ -1,186 +1,194 @@
-$background: #181b31;
-$darkgreen: #07c83e; // this is light green
-$green: #09805c; // this is dark green
-$lilac: #575b8e;
-$red: #e9165d;
 
-// Styles by: https://codepad.co/snippet/creative-form
-// General page styling
 body {
-  background: $background;
-  color: #fff;
-  font: 300 1.25em "Open Sans", sans-serif;
-  margin: 0 1em;
-  max-width: calc(100% - 7em);
-  padding: 2em calc(50% - 16em);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    padding: 1em;
 }
 
-h2 {
-  margin: 0 0 0.25em;
-  font-size: 2em;
-  font-weight: 300;
-}
 
-form { // Important for placement
-  position: relative;
-}
+// $background: #181b31;
+// $darkgreen: #07c83e; // this is light green
+// $green: #09805c; // this is dark green
+// $lilac: #575b8e;
+// $red: #e9165d;
 
-textarea {
-  resize: none;
-}
+// // Styles by: https://codepad.co/snippet/creative-form
+// // General page styling
+// body {
+//   background: $background;
+//   color: #fff;
+//   font: 300 1.25em "Open Sans", sans-serif;
+//   margin: 0 1em;
+//   max-width: calc(100% - 7em);
+//   padding: 2em calc(50% - 16em);
+// }
 
-// General form styling
-input,
-textarea {
-  background: transparent;
-  border: 0;
-  box-sizing: border-box;
-  color: inherit;
-  margin: 0.5em 0;
-  padding: 0.5em;
-  width: 100%;
+// h2 {
+//   margin: 0 0 0.25em;
+//   font-size: 2em;
+//   font-weight: 300;
+// }
 
-  &:focus {
-    outline: 0;
-  }
-}
+// form { // Important for placement
+//   position: relative;
+// }
 
-label {
-  position: absolute;
-  left: 0;
-  width: 100%;
+// textarea {
+//   resize: none;
+// }
 
-// The colored borders around the text inputs
-  &::before,
-  &::after {
-    border-width: 1px;
-    border-style: solid;
-    content:' ';
-    pointer-events: none;
-    position: absolute;
-    transition: 0.75s;
-    width: 5%;
-    height: 2.25em;
-    z-index: 1;
-  }
+// // General form styling
+// input,
+// textarea {
+//   background: transparent;
+//   border: 0;
+//   box-sizing: border-box;
+//   color: inherit;
+//   margin: 0.5em 0;
+//   padding: 0.5em;
+//   width: 100%;
 
-  &::before {
-    border-right: 0;
-  }
+//   &:focus {
+//     outline: 0;
+//   }
+// }
 
-  &::after {
-    border-left: 0;
-    right: 0;
-  }
-}
+// label {
+//   position: absolute;
+//   left: 0;
+//   width: 100%;
 
-// Underlined text
-.label-text {
-  background: $background;
-  display: block;
-  padding: 0.5em 1em;
-  position: absolute;
-    right: 0;
-  transition: 0.5s;
+// // The colored borders around the text inputs
+//   &::before,
+//   &::after {
+//     border-width: 1px;
+//     border-style: solid;
+//     content:' ';
+//     pointer-events: none;
+//     position: absolute;
+//     transition: 0.75s;
+//     width: 5%;
+//     height: 2.25em;
+//     z-index: 1;
+//   }
 
-  // Underline
-  &::after {
-    border-top: 1px solid;
-    content: ' ';
-    display: block;
-    transition: 0.5s;
-  }
-}
+//   &::before {
+//     border-right: 0;
+//   }
 
-input:focus,
-textarea:focus {
-  // Expand borders
-  & + label::before,
-  & + label::after {
-    width: 50%;
-  }
+//   &::after {
+//     border-left: 0;
+//     right: 0;
+//   }
+// }
+
+// // Underlined text
+// .label-text {
+//   background: $background;
+//   display: block;
+//   padding: 0.5em 1em;
+//   position: absolute;
+//     right: 0;
+//   transition: 0.5s;
+
+//   // Underline
+//   &::after {
+//     border-top: 1px solid;
+//     content: ' ';
+//     display: block;
+//     transition: 0.5s;
+//   }
+// }
+
+// input:focus,
+// textarea:focus {
+//   // Expand borders
+//   & + label::before,
+//   & + label::after {
+//     width: 50%;
+//   }
   
-  // Move text
-  & + label .label-text {
-    transform: translate3d(100%,0,0);
-  }
+//   // Move text
+//   & + label .label-text {
+//     transform: translate3d(100%,0,0);
+//   }
 
-  // Move text underline
-  & + label .label-text::after {
-    transform: translate3d(-100%,-0.75em,0);
-    width: 1em;
-  }
-}
+//   // Move text underline
+//   & + label .label-text::after {
+//     transform: translate3d(-100%,-0.75em,0);
+//     width: 1em;
+//   }
+// }
 
-// Color inputs
-#n {
-  color: $green;
-}
+// // Color inputs
+// #n {
+//   color: $green;
+// }
 
-#e {
-  color: $darkgreen;
-}
+// #e {
+//   color: $darkgreen;
+// }
 
-#n:focus + label::before,
-#n:focus + label::after {
-  border-color: $green;
-}
+// #n:focus + label::before,
+// #n:focus + label::after {
+//   border-color: $green;
+// }
 
-#e:focus + label::before,
-#e:focus + label::after {
-  border-color: $darkgreen;
-}
+// #e:focus + label::before,
+// #e:focus + label::after {
+//   border-color: $darkgreen;
+// }
 
-// Color input labels
-.name {
-  color: $green;
-  top: 0.5em;
+// // Color input labels
+// .name {
+//   color: $green;
+//   top: 0.5em;
 
-  &::before,
-  &::after {
-    border-color: rgba($green,0.3);
-      top: 0;
-  }
-}
+//   &::before,
+//   &::after {
+//     border-color: rgba($green,0.3);
+//       top: 0;
+//   }
+// }
 
-.email {
-  color: $darkgreen;
-  top: 3.85em;
+// .email {
+//   color: $darkgreen;
+//   top: 3.85em;
 
-  &::before,
-  &::after {
-    border-color: rgba($darkgreen,0.3);
-      top: 0;
-  }
-}
+//   &::before,
+//   &::after {
+//     border-color: rgba($darkgreen,0.3);
+//       top: 0;
+//   }
+// }
 
-#m {
-  height: 8em;
-}
+// #m {
+//   height: 8em;
+// }
 
-.message {
-  color: $lilac;
-  top: 7.25em;
+// .message {
+//   color: $lilac;
+//   top: 7.25em;
 
-  &::before,
-  &::after {
-    height: 8em;
-  }
-}
+//   &::before,
+//   &::after {
+//     height: 8em;
+//   }
+// }
 
-.button {
-  color: $red;
-  border: 1px solid;
-  position: relative;
-  transition: 0.3s;
+// .button {
+//   color: $red;
+//   border: 1px solid;
+//   position: relative;
+//   transition: 0.3s;
 
-  &:hover {
-    background: rgba($red, 0.2);
-  }
-}
+//   &:hover {
+//     background: rgba($red, 0.2);
+//   }
+// }
 
-@media (min-width: 660px) and (max-width: 856px) {
-  body {
-    max-width: calc(100% - 12em);
-  }
-}
+// @media (min-width: 660px) and (max-width: 856px) {
+//   body {
+//     max-width: calc(100% - 12em);
+//   }
+// }
